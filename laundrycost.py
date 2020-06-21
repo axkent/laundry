@@ -4,10 +4,12 @@ __author__      = "Axel K"
 
 #washer: $1.50 per load
 #dryer: $1.00 for 45 min (minimum time to start dryer) and $.25 for each additional 15 min
-loadnumber = input('How many laundry loads?: ')
-normaldry = 1
-hourdryer= input("How many 1 hour drying sessions?: ")
-laundrycost = (int(loadnumber) * 1.50) + int(normaldry) + (0.25*int(hourdryer))
+#typical laundry habit is to set the dryer to 60 min and reload dryer before 60 minutes is up
+
+loadnumber = int(input('How many laundry loads?: '))
+firsthourdry = float(1.25)
+subsequentdry = int((loadnumber) - 1)
+laundrycost = (loadnumber*1.50) + firsthourdry + (subsequentdry*0.75)
 quartersreq = int(laundrycost/0.25)
 
 #Print total cost of laundry session
